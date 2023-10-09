@@ -4,7 +4,7 @@ import os
 
 
 def download_audio(link, directory=""):
-    if link.find("playlist"):
+    if link.find("playlist") != -1:
         playlist = Playlist(link)
         os.mkdir(playlist.title)
         print("Downloading Playlist (" + str(playlist.length) + " videos):\n")
@@ -22,5 +22,7 @@ def download_audio(link, directory=""):
 
 
 if __name__ == "__main__":
-    download_audio(input("Link: "), input("Destination: "))
+    link = input("Link: ")
+    destination = input("Destination: ")
+    download_audio(link, destination)
     
